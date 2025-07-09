@@ -1,0 +1,1090 @@
+/* ReadMe */
+/* 本代码是Web前端DashBoard的CSS部分 */
+/* 功能：DashBoard页面布局和样式 */
+/* ReadMe */
+
+/* 通用重置 */
+* {
+  box-sizing: border-box;
+}
+body, html {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f5f6fa;
+  color: #2c3e50;
+  height: 100%; /* 改成100% */
+  overflow: hidden;
+}
+
+.layout {
+  display: flex;
+  height: 100%; /* 改成100% */
+}
+
+/* 左侧导航栏 */
+.sidebar {
+  width: 200px;
+  background-color: #ffffff;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border-right: 1px solid #ddd;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+}
+
+.sidebar h2 {
+  color: #4a90e2;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.sidebar button {
+  background: #f0f0f0;
+  color: #2c3e50;
+  border: none;
+  padding: 0.6rem 1rem;
+  text-align: left;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sidebar button:hover {
+  background: #dbe6fb;
+}
+
+.sidebar button.active {
+  background: #4a90e2;
+  color: white;
+  box-shadow: 0 0 10px #4a90e2aa;
+}
+
+/* 右侧内容 */
+.main-content {
+  flex: 1;
+  background: #ffffff;
+  padding: 1rem 1.5rem;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* 模块共通样式 */
+.module {
+  height: 100%;
+}
+
+/* 网格布局卡片容器 */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.25rem;
+  max-width: 1100px;
+  margin-top: 1.5rem;
+  padding-bottom: 20px;
+}
+
+/* 卡片样式 */
+.card {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 16px rgba(74, 144, 226, 0.12);
+  padding: 1.5rem 1.8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 140px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 32px rgba(74, 144, 226, 0.25);
+}
+
+/* 传感器卡片标题 */
+.card.sensor-card .title {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  user-select: none;
+}
+
+/* 传感器数值 */
+.sensor-value {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #4a90e2;
+  margin-bottom: 0.2rem;
+  letter-spacing: 0.03em;
+  user-select: text;
+}
+
+.unit {
+  font-size: 1.05rem;
+  color: #7f8c8d;
+  font-weight: 600;
+  user-select: none;
+}
+
+/* 设备卡片标题 */
+.card.device-card .title {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #34495e;
+  margin-bottom: 0.8rem;
+  user-select: none;
+}
+
+/* 状态指示灯 */
+.device-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #34495e;
+  margin-bottom: 1rem;
+  user-select: none;
+}
+
+.status-indicator {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  flex-shrink: 0;
+}
+
+.status-indicator.on {
+  background-color: #2ecc71;
+  box-shadow: 0 0 8px #2ecc71aa;
+}
+
+.status-indicator.off {
+  background-color: #e74c3c;
+  box-shadow: 0 0 8px #e74c3caa;
+}
+
+/* --------传感器卡片样式 -------- */
+.card.device-card {
+  background-color: #f0f0f0;
+  color: #34495e;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: background-color 0.4s ease, color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.device-card.on {
+  background-color: #e4e9ec;
+  color: #f0f8ff;
+  box-shadow: 0 12px 30px rgba(9, 57, 102, 0.7);
+}
+
+/* --------B401-B405卡片样式 -------- */
+.card.device-card.b-light-on {
+  background-color: #fff9e6;
+  color: #6b5900;
+  box-shadow: 0 12px 30px rgba(255, 223, 86, 0.6);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.card.device-card.b-light-on:hover {
+  background-color: #fff8cc;
+  box-shadow: 0 16px 40px rgba(255, 223, 86, 0.8);
+  transform: translateY(-5px);
+}
+
+.card.device-card.b-dark-off {
+  background-color: #444c57;
+  color: #b0bacd;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.card.device-card.b-dark-off .title {
+  color: #ffffff;
+}
+
+.card.device-card.b-dark-off:hover {
+  background-color: #505a67;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+  transform: translateY(-5px);
+}
+
+/* -------- Door门禁卡片样式 -------- */
+.card.device-card.b-door-on {
+  background-color: #74f5ac; /* 清新绿色背景 */
+  color: #006b3c;
+  box-shadow: 0 12px 30px rgba(102, 255, 178, 0.6);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.card.device-card.b-door-on:hover {
+  background-color: #a2fac8;
+  box-shadow: 0 16px 40px rgba(58, 250, 154, 0.8);
+  transform: translateY(-5px);
+}
+
+.card.device-card.b-door-off {
+  background-color: #e03f3f;
+  color: #e0a7a7;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.card.device-card.b-door-off .title {
+  color: #ffecec;
+}
+
+.card.device-card.b-door-off:hover {
+  background-color: #e85959;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  transform: translateY(-5px);
+}
+
+/* 设备控制按钮容器 */
+.device-controls {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.8rem;
+}
+
+.device-controls button {
+  flex: 1;
+  padding: 0.6rem 0;
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.25s ease, box-shadow 0.25s ease;
+  user-select: none;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 0.12);
+}
+
+.device-controls button.btn-on {
+  background-color: #4caf50;
+  color: #f0fdfa;
+  box-shadow: 0 4px 10px #4caf5033;
+}
+
+.device-controls button.btn-on:hover {
+  background-color: #43a047;
+  box-shadow: 0 6px 14px #43a04744;
+}
+
+.device-controls button.btn-off {
+  background-color: #ef5350;
+  color: #fff7f7;
+  box-shadow: 0 4px 10px #ef535033;
+}
+
+.device-controls button.btn-off:hover {
+  background-color: #e53935;
+  box-shadow: 0 6px 14px #e5393544;
+}
+
+/* 聊天模块 */
+#chat-module {
+  background-color: #f9fbfe;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 24px rgba(74, 144, 226, 0.15);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+#chat-log {
+  height: 300px;
+  overflow-y: auto;
+  background: #eef3fb;
+  border-radius: 10px;
+  padding: 1rem;
+  color: #2c3e50;
+  font-family: 'Segoe UI', sans-serif;
+  white-space: pre-wrap;
+  margin-bottom: 1rem;
+  border: 1px solid #dbe6fb;
+}
+
+textarea#user-input {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: 1px solid #cfd9e8;
+  background: #ffffff;
+  color: #2c3e50;
+  resize: none;
+  font-size: 1rem;
+  font-family: 'Segoe UI', sans-serif;
+  box-sizing: border-box;
+}
+
+#send-btn:hover {
+  background-color: #357ABD;
+}
+
+/* WHEP 视频加载动画 */
+@keyframes spin {
+  0% { transform: rotate(0deg);}
+  100% { transform: rotate(360deg);}
+}
+
+#loadingSpinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #4a90e2;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 1s linear infinite;
+}
+
+#webrtcPlayerContainer video {
+  opacity: 0;
+  transition: opacity 1s ease;
+  border-radius: 12px;
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* 视频加载动画 */
+#webrtcPlayerContainer video.playing {
+  opacity: 1;
+}
+#loadingOverlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #4a90e2;
+}
+
+#loadingText {
+  margin-top: 0.75rem;
+}
+
+#video-header {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  z-index: 20;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+#refresh-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 20;
+  background-color: rgba(255,255,255,0.9);
+  border: none;
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+#refresh-btn:hover {
+  background-color: #f0f0f0;
+}
+
+#video-footer {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  background: rgba(0,0,0,0.5);
+  color: #eee;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  z-index: 20;
+}
+#webrtcBorder {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(74, 144, 226, 0.4);
+  animation: pulse-glow 3s ease-in-out infinite;
+  position: relative;
+  background: linear-gradient(135deg, #dff1ff 0%, #f2f9ff 100%);
+  padding: 12px;
+}
+
+@keyframes pulse-glow {
+  0% {
+    box-shadow: 0 0 12px rgba(74,144,226, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 24px rgba(74,144,226, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 12px rgba(74,144,226, 0.4);
+  }
+}
+
+
+/* Chat部分容器 */
+#chat-container {
+  margin: 0;
+  font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  background-color: transparent;
+  color: #2c3e50;
+  display: flex;
+  flex-direction: column;
+  height: 100%; 
+  width: 100%;
+}
+
+/* 聊天框容器*/
+#chat-container > .chat-container {
+  flex: 1;
+  background-color: #f9fbfe;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(74, 144, 226, 0.15);
+}
+
+/* 顶部标题 */
+#chat-container header {
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.4rem;
+  background: #4a90e2;
+  color: white;
+  font-weight: 700;
+  flex-shrink: 0;
+  user-select: none;
+}
+
+/* 消息显示区域*/
+#chat-container main {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  background-color: #eef3fb; 
+  color: #2c3e50;
+  font-size: 1rem;
+  scroll-behavior: smooth;
+}
+
+/* 底部输入区 */
+#chat-container .input-area {
+  display: flex;
+  padding: 1rem 1.2rem;
+  background-color: #f0f4fa;
+  border-top: 1px solid #dbe6fb;
+  gap: 0.5rem;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* 输入框样式 */
+#chat-container #user-input {
+  flex: 1;
+  resize: none;
+  padding: 0.7rem 1rem;
+  border-radius: 10px;
+  border: 1px solid #4a90e2;
+  font-size: 1rem;
+  background-color: #ffffff;
+  color: #2c3e50;
+  box-shadow: 0 0 0px transparent; 
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  min-height: 2.2em;
+  max-height: 140px;
+  overflow-y: auto;
+  font-family: inherit;
+}
+
+#chat-container #user-input:focus {
+  outline: none;
+  border-color: #357abd;
+  box-shadow: 0 0 16px 4px rgba(53, 122, 189, 0.5);
+  animation: none; 
+}
+
+/* 按钮样式 */
+#chat-container #send-btn,
+#chat-container #record-btn {
+  padding: 0.7rem 1rem;
+  border: none;
+  background-color: #4a90e2;
+  color: white;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 10px #4a90e244;
+  font-size: 1.1rem;
+  user-select: none;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+#send-btn.disabled {
+  background-color: #ccc !important; 
+  cursor: not-allowed; 
+  opacity: 0.5; 
+  transition: background-color 0.3s ease, opacity 0.3s ease; 
+}
+
+
+#chat-container #send-btn:hover,
+#chat-container #record-btn:hover {
+  background-color: #357abd;
+  box-shadow: 0 6px 14px #357abd66;
+}
+
+/* 消息容器基础*/
+#chat-container .message {
+  display: flex;
+  align-items: flex-end;
+  max-width: 100%;
+  animation: fadeBounceIn 0.35s ease forwards;
+  position: relative;
+  word-break: break-word;
+  user-select: text;
+}
+
+/* 用户消息 */
+#chat-container .message.user {
+  justify-content: flex-end;
+  padding-right: 1rem;
+}
+
+/* AI消息靠左 */
+#chat-container .message.ai {
+  justify-content: flex-start;
+  padding-left: 1rem;
+}
+
+/* 思考消息居中 */
+#chat-container .message.thinking {
+  justify-content: center !important;
+}
+
+/* 头像大小与间距 */
+#chat-container .avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 8px rgba(74, 144, 226, 0.6);
+  user-select: none;
+}
+
+/* 用户头像右侧 */
+#chat-container .message.user .avatar {
+  order: 2;
+  margin-left: 8px;
+}
+
+/* AI头像左侧 */
+#chat-container .message.ai .avatar {
+  order: 0;
+  margin-right: 8px;
+}
+
+/* 气泡基础样式 */
+#chat-container .bubble {
+  max-width: 65%;
+  padding: 0.9rem 1.4rem;
+  border-radius: 20px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  font-size: 1rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 20, 0.15);
+  position: relative;
+  background-clip: padding-box;
+  transition: background-color 0.3s ease;
+}
+
+/* 用户气泡 */
+#chat-container .message.user .bubble {
+  background-color: #dbe6fb;
+  color: #2c3e50;
+  border-bottom-right-radius: 4px;
+}
+
+#chat-container .message.user .bubble::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: -10px;
+  width: 0;
+  height: 0;
+  border-top: 14px solid #dbe6fb;
+  border-left: 10px solid transparent;
+}
+
+/* AI气泡 */
+#chat-container .message.ai .bubble {
+  background-color: #ffffff;
+  color: #4a90e2;
+  border-bottom-left-radius: 4px;
+}
+
+#chat-container .message.ai .bubble::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: -10px;
+  width: 0;
+  height: 0;
+  border-top: 14px solid #ffffff;
+  border-right: 10px solid transparent;
+}
+
+/* 思考气泡样式 */
+#chat-container .bubble.thinking {
+  max-width: 60%;
+  padding: 0.5rem 1rem;
+  background: linear-gradient(135deg, #4a90e2, #357abd);
+  color: #dbe6fb;
+  font-style: italic;
+  border-radius: 14px;
+  cursor: pointer;
+  overflow: hidden;
+  max-height: 2.4em; 
+  opacity: 0.75;
+  white-space: normal;  
+  box-shadow:
+    0 0 14px 3px rgba(74,144,226,0.6),
+    inset 0 0 18px 3px rgba(53,122,189,0.8);
+  transition:
+    max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.45s ease,
+    box-shadow 0.45s ease;
+  position: relative;
+  animation: thinkingPulse 1.6s infinite ease-in-out;
+}
+
+#chat-container .bubble.thinking.paused {
+  animation-play-state: paused;
+  box-shadow:
+    0 0 8px 2px rgba(53, 122, 189, 0.4),
+    inset 0 0 10px 2px rgba(42, 110, 164, 0.6);
+  opacity: 0.65;
+  background: linear-gradient(135deg, #357abd, #2c6ea4);
+  color: #a3b4d6;
+
+  /* 新增建议同步修改项 */
+  max-height: 2.4em; 
+  white-space: normal; 
+  text-overflow: unset; 
+}
+
+
+/* 思考框展开 */
+#chat-container .bubble.thinking.expanded {
+  max-height: 280px; 
+  opacity: 1;
+  white-space: pre-wrap; 
+  overflow-y: hidden; 
+  box-shadow:
+    0 0 20px 5px rgba(74, 144, 226, 0.8),
+    inset 0 0 30px 5px rgba(53, 122, 189, 1);
+  background: linear-gradient(135deg, #4a90e2, #357abd);
+  color: #c0c8e0;
+  
+  /* 滚动条 */
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: rgba(0, 0, 0, 0.1) rgba(53, 122, 189, 0.8); /* Firefox */
+}
+
+#chat-container .bubble.thinking.expanded::-webkit-scrollbar {
+  width: 8px;  /* 滚动条宽度 */
+}
+
+#chat-container .bubble.thinking.expanded::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.1); /* 滚动条滑块颜色 */
+  border-radius: 4px;  /* 滚动条滑块圆角 */
+}
+
+#chat-container .bubble.thinking.expanded::-webkit-scrollbar-track {
+  background-color: rgba(53, 122, 189, 0.8); /* 滚动条轨道颜色 */
+  border-radius: 4px;  /* 滚动条轨道圆角 */
+}
+
+
+/* 思考框收起 */
+#chat-container .bubble.thinking.collapsing {
+  max-height: 2.4em; /* 收起时的最大高度 */
+  opacity: 0.65;
+  white-space: nowrap;  /* 收起时单行显示，避免换行 */
+  overflow: hidden;     /* 超出隐藏 */
+  box-shadow:
+    0 0 8px 2px rgba(80, 85, 110, 0.4),
+    inset 0 0 10px 2px rgba(100, 105, 130, 0.6);
+  background: linear-gradient(135deg, #3b6fb2, #2e5688); /* 稍暗淡的渐变 */
+  color: #a0a8b0;
+  transition: max-height 0.4s ease, opacity 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* 思考动画 */
+#chat-container .bubble.thinking::before {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 12px;
+  background-image: url("data:image/svg+xml;utf8,\
+  <svg width='60' height='20' xmlns='http://www.w3.org/2000/svg'>\
+    <circle cx='10' cy='10' r='6' fill='%23dbe6fb'>\
+      <animate attributeName='opacity' values='0;1;0' dur='1.4s' repeatCount='indefinite' begin='0s'/>\
+    </circle>\
+    <circle cx='30' cy='10' r='6' fill='%23dbe6fb'>\
+      <animate attributeName='opacity' values='0;1;0' dur='1.4s' repeatCount='indefinite' begin='0.2s'/>\
+    </circle>\
+    <circle cx='50' cy='10' r='6' fill='%23dbe6fb'>\
+      <animate attributeName='opacity' values='0;1;0' dur='1.4s' repeatCount='indefinite' begin='0.4s'/>\
+    </circle>\
+  </svg>");
+  background-size: cover;
+  margin-right: 8px;
+}
+
+#chat-container .bubble.thinking.paused::before {
+  background-image: url("data:image/svg+xml;utf8,\
+  <svg width='60' height='20' xmlns='http://www.w3.org/2000/svg'>\
+    <circle cx='10' cy='10' r='6' fill='%236f90bb'/>\
+    <circle cx='30' cy='10' r='6' fill='%236f90bb'/>\
+    <circle cx='50' cy='10' r='6' fill='%236f90bb'/>\
+  </svg>");
+}
+
+/* 动画淡入 */
+@keyframes fadeBounceIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 呼吸动画 */
+@keyframes thinkingPulse {
+  0%, 100% {
+    opacity: 0.75;
+    box-shadow:
+      0 0 12px 3px rgba(74,144,226,0.6),
+      inset 0 0 18px 3px rgba(53,122,189,0.8);
+  }
+  50% {
+    opacity: 1;
+    box-shadow:
+      0 0 18px 5px rgba(90,144,230,0.8),
+      inset 0 0 22px 5px rgba(53,130,190,1);
+  }
+}
+
+@keyframes focusPulse {
+  0% {
+    box-shadow: 0 0 0px #357abd00;
+  }
+  50% {
+    box-shadow: 0 0 12px #357abd99;
+  }
+  100% {
+    box-shadow: 0 0 0px #357abd00;
+  }
+}
+
+#fan-image {
+  animation-name: spin;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-duration: var(--spin-duration, 5s);
+  animation-play-state: paused; /* 默认暂停 */
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+
+
+/* ========== 移动端适配优化 ========== */
+
+/* 保证最小宽度，防止过度缩放 */
+html {
+  min-width: 320px;
+}
+
+/* 移动端提升字体和滚动体验 */
+html, body {
+  -webkit-touch-callout: none;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -webkit-overflow-scrolling: touch;
+  text-size-adjust: 100%;
+  margin: 0;
+  height: 100%;
+  overflow: hidden; /* 防止整体页面滚动，滚动由内部区域承担 */
+}
+
+/* ====== 768px 以下布局调整 ====== */
+@media (max-width: 768px) {
+  /* 整体布局撑满屏幕，高度 100vh，纵向排列 */
+  .layout {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* 满屏高度 */
+    min-height: 100vh;
+  }
+
+  /* 侧边栏横向滚动，隐藏标题 */
+  .sidebar {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    white-space: nowrap;
+    border-bottom: 1px solid #ddd;
+    padding: 0.5rem 0;
+    flex-shrink: 0; /* 防止被压缩 */
+  }
+  .sidebar button {
+    flex: 0 0 auto;
+    margin: 0 0.5rem;
+  }
+  .sidebar h2 {
+    display: none;
+  }
+
+  /* 右侧主内容区撑满剩余空间，纵向排列 */
+  .main-content {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* 防止内容溢出整体区域 */
+    min-height: 0; /* flexbox 重要，允许子元素撑开 */
+  }
+
+  /* MQTT模块撑满高度，使用flex布局 */
+  #mqtt-module {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    min-height: 0; /* 关键：避免 flex 子元素内容撑开高度导致滚动失效 */
+  }
+
+  /* 网格容器撑满剩余高度，允许垂直滚动 */
+  .grid-container {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    padding: 0.5rem;
+    box-sizing: border-box;
+    -webkit-overflow-scrolling: touch;
+    min-height: 0;
+  }
+
+  /* 聊天模块撑满高度 */
+  #chat-module {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+  }
+
+  #chat-container {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 0;
+  }
+
+  .chat-container {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+  }
+
+  #chat-log {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background: #f9f9f9;
+    -webkit-overflow-scrolling: touch;
+    min-height: 0;
+  }
+
+  /* 输入区水平排列，输入框自适应 */
+  .input-area {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+  }
+
+  #user-input {
+    flex: 1 1 auto;
+    resize: none;
+    min-height: 2.5em;
+    max-height: 6em;
+    overflow-y: auto;
+    font-size: 1rem;
+    padding: 0.5rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+  }
+
+  #send-btn, #record-btn {
+    flex-shrink: 0;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: none;
+    background-color: #4a90e2;
+    color: white;
+    cursor: pointer;
+  }
+
+  #send-btn:disabled {
+    background-color: #a0c0f0;
+    cursor: not-allowed;
+  }
+}
+
+/* ====== 480px 以下 ====== */
+@media (max-width: 480px) {
+  .sensor-value {
+    font-size: 2.2rem;
+  }
+
+  .card.sensor-card .title,
+  .card.device-card .title {
+    font-size: 1rem;
+  }
+
+  .device-controls button {
+    font-size: 0.9rem;
+    padding: 0.5rem 0;
+  }
+
+  .status-indicator {
+    width: 14px;
+    height: 14px;
+  }
+
+  #chat-container > .chat-container {
+    border-radius: 12px;
+  }
+
+  #chat-container header {
+    font-size: 1.2rem;
+    padding: 0.75rem;
+  }
+
+  #chat-container main {
+    padding: 0.8rem;
+    max-height: 1000px;
+  }
+
+  #chat-container .input-area {
+    padding: 0.8rem;
+  }
+
+  #chat-container #user-input {
+    font-size: 0.95rem;
+    min-height: 2em;
+    max-height: 100px;
+  }
+
+  #chat-container #send-btn,
+  #chat-container #record-btn {
+    font-size: 1rem;
+    padding: 0.6rem 1rem;
+  }
+
+  #record-btn {
+    margin-left: 0.25rem;
+    padding-left: 0.9rem;
+    padding-right: 0.9rem;
+  }
+
+  #webrtcPlayerContainer {
+    aspect-ratio: auto;
+    height: auto;
+  }
+
+  /* —— 新增：聊天界面整体缩小 —— */
+  #chat-container,
+  .chat-container,
+  #chat-log {
+    font-size: 0.85rem; /* 缩小字体，显示更多内容 */
+  }
+
+  #chat-log {
+    padding: 0.3rem;
+    max-height: 200px; /* 减小最大高度，节省空间 */
+  }
+
+  #user-input {
+    font-size: 0.85rem;
+    min-height: 1.8em;
+    max-height: 4em;
+    padding: 0.3rem;
+  }
+
+  #send-btn, #record-btn {
+    font-size: 0.85rem;
+    padding: 0.3rem 0.7rem;
+  }
+
+  .input-area {
+    gap: 0.3rem;
+    padding: 0.3rem 0;
+  }
+
+  #chat-container > .chat-container {
+    border-radius: 8px;
+  }
+}
+
+/* ======聊天窗口微调 ====== */
+@media (max-height: 600px) {
+  #chat-container main {
+    max-height: 200px;
+    overflow-y: auto;
+  }
+
+  #chat-container .input-area {
+    padding: 0.5rem 0.8rem;
+  }
+}

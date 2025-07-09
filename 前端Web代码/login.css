@@ -1,0 +1,127 @@
+/* ReadMe */
+/* 本代码是Web前端Login的CSS部分 */
+/* 功能：登录页面布局和样式 */
+/* 依赖：无 */
+
+/* 颜色变量 */
+:root {
+    --primary-color: #4a90e2;
+    --text-color: #333;
+}
+
+/* 页面主体布局：垂直排列，撑满全屏 */
+body.login-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(135deg, #4a90e2 0%, #2c3e50 100%);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: var(--text-color);
+    margin: 0;
+}
+
+/* 中间内容容器 */
+.login-container {
+    flex: 1;  /* 占据所有可用空间 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+}
+
+/* 登录卡片 */
+.login-card {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+/* 标题 */
+.login-card h1 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    font-size: 1.8em;
+}
+
+/* 表单组 */
+.login-form .form-group {
+    margin-bottom: 20px;
+}
+
+.login-form label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--text-color);
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.login-form input[type="text"]:focus,
+.login-form input[type="password"]:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+/* 登录按钮 */
+.login-button {
+    width: 100%;
+    padding: 12px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+    background: #357abd;
+}
+
+/* 提示 */
+.login-tips {
+    text-align: center;
+    margin-top: 20px;
+    color: var(--text-color);
+}
+
+/* 备案号 footer */
+.footer {
+    text-align: center;
+    padding: 10px 0;
+    font-size: 14px;
+    color: #eee;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+.footer a {
+    color: #eee;
+    text-decoration: none;
+}
+.footer a:hover {
+    text-decoration: underline;
+}
+
+/* 响应式适配 */
+@media (max-width: 480px) {
+    .login-container {
+        padding: 10px;
+    }
+
+    .login-card {
+        padding: 20px;
+    }
+}

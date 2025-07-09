@@ -1,0 +1,45 @@
+<!-- ReadMe -->
+<!-- 本代码是Web前端的Login部分 -->
+<!-- 功能:1.用户登录 2.ICP备案号查看 -->
+<!-- 依赖:1."login.js" 2.login.css -->
+<!-- ReadMe -->
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录 - 实验室智能管理平台</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body class="login-page">
+    <div class="login-container">
+        <div class="login-card">
+            <h1>实验室智能管理平台</h1>
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="username">用户名</label>
+                    <input type="text" id="username" name="username">
+                </div>
+                <div class="form-group">
+                    <label for="password">密码</label>
+                    <input type="password" id="password" name="password">
+                </div>
+                <button type="submit" class="login-button">登录</button>
+            </form>
+            <div class="login-tips">
+                <p>提示：</p>
+                <p>用户名：user 密码：user</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 备案号 -->
+    <footer class="footer">
+        <p>© 2025 实验室智能管理平台 | <a href="https://beian.miit.gov.cn/" target="_blank">桂ICP备2024047887号</a></p>
+        <p>© 嵌入式比赛无刺不刺 版权所有</p>
+    </footer>
+
+    <script src="login.js"></script>
+</body>
+</html>

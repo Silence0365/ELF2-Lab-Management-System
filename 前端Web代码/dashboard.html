@@ -1,0 +1,70 @@
+<!-- ReadMe -->
+<!-- 本代码是Web前端的DashBoard部分 -->
+<!-- 功能:1.MQTT控制 2.摄像头画面查看 3.AI聊天交互 4.实验室状态查看 -->
+<!--依赖:1."script.js" 2.style.css  -->
+<!-- ReadMe -->
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>实验室智能助手</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="layout">
+    <!-- 左侧BAR -->
+    <nav class="sidebar">
+      <h2>🔧 实验室管理系统</h2>
+      <button onclick="switchTab('mqtt')" data-tab="mqtt" class="active">设备控制与管理</button>
+      <button onclick="switchTab('yolo')" data-tab="yolo">摄像头画面</button>
+      <button onclick="switchTab('chat')" data-tab="chat">智能助手</button>
+    </nav>
+
+    <!-- 右侧Context -->
+    <main class="main-content">
+      <div id="mqtt-module" class="module">
+        <h2>实验室状态</h2>
+        <div class="grid-container" id="grid-container"></div>
+      </div>
+
+      <div id="yolo-module" class="module" style="display:none; text-align: center; max-width: 700px; margin: 0 auto; position: relative;">
+        <div id="video-header">🎥 YOLO 摄像头画面 — <span id="current-time">--:--:--</span></div>
+
+        <div id="webrtcBorder">
+          <div id="webrtcPlayerContainer">
+            <div id="loadingOverlay">
+              <div id="loadingSpinner"></div>
+              <div id="loadingText">视频加载中...</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="chat-module" class="module" style="display:none">
+        <div id="chat-container">
+          <div class="chat-container">
+            <header>实验室智能助手</header>
+            <main id="chat-log"></main>
+            <div class="input-area">
+              <textarea id="user-input" placeholder="请输入内容..." rows="2"></textarea>
+              <button id="record-btn" type="button">录音</button>
+              <button id="send-btn" type="button">发送</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- 引入 MQTT.js -->
+  <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+
+  <!-- WebRTC 播放器 -->
+  <script src="https://bluenviron.github.io/webrtc-player/webrtc-player.min.js"></script>
+
+  <!-- js引入 -->
+  <script src="script.js"></script>
+</body>
+</html>
