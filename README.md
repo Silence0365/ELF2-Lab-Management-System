@@ -133,7 +133,8 @@ LVGL 的 UI 界面，实现本地直观操作与信息展示。
 ![图 5](./images/image5.jpg "PCB实物图 ") 
 
 ### 3.2.3 软件成果  
- * Web界面 
+ * Web界面
+
 ![图 6](./images/image6.png "设备控制与管理界面")
 
 ![图 7](./images/image7.png "摄像头画面 ") 
@@ -141,8 +142,7 @@ LVGL 的 UI 界面，实现本地直观操作与信息展示。
 ![图 8](./images/image8.png "AI问答界面") 
 
 * LVGL界面 
-
-c
+![图 9](./images/image9.jpg "AI问答界面")
 
 ### 3.3 特性成果 
 1. 身份认证：在环境光较好的情况下可在1-2s内完成识别。 
