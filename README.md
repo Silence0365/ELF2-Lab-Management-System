@@ -1,10 +1,7 @@
  
 # 基于 ELF2 开发板的智慧实验室管理系统 
 
-<video width="600" controls>
-  <source src="./videos/github.mp4" type="video/mp4" />
-  Your browser does not support the video tag.
-</video>
+https://github.com/user-attachments/assets/19d52625-1748-4093-9a78-41dacbe929f2
 
 # 摘要   
 针对当前高校实验室安全事故频发所暴露出的实验室智能化预警与管理短板，本项目基于  ELF2 开发板构建了一个全栈本地化部署的智慧实验室管理系统。在单一嵌入式平台集成了前端网页模块、UI 用户交互模块、AI 推理与电源网络管理四大模块。 
@@ -138,7 +135,7 @@ LVGL 的 UI 界面，实现本地直观操作与信息展示。
 ![图 5](./images/image5.jpg "PCB实物图 ") 
 
 ### 3.2.3 软件成果  
-###Web界面
+### Web界面
 
 ![图 6](./images/image6.png "设备控制与管理界面")
 
@@ -146,7 +143,7 @@ LVGL 的 UI 界面，实现本地直观操作与信息展示。
 
 ![图 8](./images/image8.png "AI问答界面") 
 
-###LVGL界面 
+### LVGL界面 
 
 ![图 9](./images/image9.jpg "AI问答界面")
 
